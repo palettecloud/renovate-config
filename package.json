@@ -1,0 +1,15 @@
+{
+  "name": "@palettecloud/renovate-config",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "renovate-config": {
+    "default": {
+      "extends": [
+        "config:base"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "npx --package renovate -c 'renovate-config-validator'"
+  }
+}
