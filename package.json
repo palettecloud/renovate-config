@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "UNLICENSED",
   "scripts": {
-    "test": "renovate-config-validator"
+    "test": "npx --package renovate -c 'renovate-config-validator'"
   },
   "renovate-config": {
     "default": {
