@@ -28,9 +28,7 @@
         },
         {
           "packagePatterns": ["^@types/"],
-          "major": {
-            "automerge": false
-          }
+          "automerge": false
         },
         {
           "groupName": "jest",
