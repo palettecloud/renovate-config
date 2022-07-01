@@ -28,7 +28,6 @@
         },
         {
           "packagePatterns": ["^@types/"],
-          "automerge": true,
           "major": {
             "automerge": false
           }
