@@ -1,0 +1,39 @@
+{
+   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+      "extends": [
+        "config:base",
+        ":timezone(Asia/Tokyo)"
+      ],
+      "labels": ["dependencies", "renovate"],
+      "schedule": ["after 10pm and before 5am every weekday", "every weekend"],
+      "dependencyDashboard": true,
+      "lockFileMaintenance": {
+        "enabled": true
+      },
+      "packageRules": [
+        {
+          "groupName": "husky",
+          "matchPackagePatterns": ["husky"],
+          "labels": ["renovate", "automerge:false"],
+          "rebaseWhen": "conflicted",
+          "automerge": false
+        },
+        {
+          "packagePatterns": ["^@types/"],
+          "automerge": false
+        },
+        {
+          "groupName": "jest",
+          "sourceUrlPrefixes": [
+            "https://github.com/facebook/jest",
+            "https://github.com/kulshekhar/ts-jest"
+          ]
+        },
+        {
+          "groupName": "linters",
+          "extends": ["packages:linters"],
+          "packageNames": ["prettier"],
+          "packagePatterns": ["^@typescript-eslint/"]
+        }
+      ]
+}
