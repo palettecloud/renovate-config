@@ -4,59 +4,5 @@
   "license": "UNLICENSED",
   "scripts": {
     "test": "npx --package renovate -c 'renovate-config-validator'"
-  },
-  "renovate-config": {
-    "default": {
-      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-      "extends": [
-        ":dependencyDashboard",
-        ":semanticPrefixFixDepsChoreOthers",
-        ":ignoreModulesAndTests",
-        ":autodetectPinVersions",
-        ":prHourlyLimit2",
-        ":prConcurrentLimit10",
-        "group:recommended",
-        "workarounds:all",
-        ":timezone(Asia/Tokyo)"
-      ],
-      "labels": ["dependencies", "renovate"],
-      "schedule": ["after 10pm and before 5am every weekday", "every weekend"],
-      "separateMajorMinor": true,
-      "lockFileMaintenance": {
-        "enabled": true
-      },
-      "packageRules": [
-        {
-          "groupName": "husky",
-          "matchPackagePatterns": ["husky"],
-          "labels": ["dependencies", "renovate", "check needed"],
-          "rebaseWhen": "conflicted",
-          "automerge": false
-        },
-        { 
-          "groupName": "types",
-          "packagePatterns": ["^@types/"],
-          "labels": ["dependencies", "renovate", "check needed"],
-          "automerge": false
-        },
-        {
-          "groupName": "jest",
-          "labels": ["dependencies", "renovate", "check needed"],
-          "automerge": false,
-          "sourceUrlPrefixes": [
-            "https://github.com/facebook/jest",
-            "https://github.com/kulshekhar/ts-jest"
-          ]
-        },
-        {
-          "groupName": "linters",
-          "labels": ["dependencies", "renovate", "check needed"],
-          "automerge": false,
-          "extends": ["packages:linters"],
-          "packageNames": ["prettier"],
-          "packagePatterns": ["^@typescript-eslint/"]
-        }
-      ]
-    }
   }
 }
