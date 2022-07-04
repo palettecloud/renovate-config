@@ -8,7 +8,6 @@
     ":prHourlyLimit2",
     ":prConcurrentLimit10",
     "group:recommended",
-    "group:allNonMajor",
     "workarounds:all",
     ":timezone(Asia/Tokyo)"
   ],
