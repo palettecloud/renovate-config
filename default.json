@@ -8,8 +8,14 @@
     ":prHourlyLimit2",
     ":prConcurrentLimit10",
     "group:recommended",
+    "group:allNonMajor",
+    "group:jsUnitTestNonMajor",
+    "group:nuxtjsMonorepo",
     "workarounds:all",
     ":timezone(Asia/Tokyo)"
+  ],
+  "ignorePresets": [
+    "group:nodeJs"
   ],
   "labels": ["dependencies", "renovate"],
   "schedule": ["after 10pm and before 5am every weekday", "every weekend"],
@@ -18,22 +24,46 @@
     "enabled": true
   },
   "packageRules": [
+    { 
+      "groupName": "ignore packages - aws",
+      "matchPackageNames": [
+        "aws-cli",
+        "aws-ecr",
+        "aws-ecs",
+        "aws-s3"
+      ],
+      "packagePatterns": ["aws"],
+      "enabled": false
+    },
+    {
+      "groupName": "ignore packages - node",
+      "packageNames": ["node", "cimg/node"],
+      "enabled": false
+    },
+     {
+      "groupName": "ignore packages - python",
+      "packageNames": ["python", "cimg/python"],
+      "enabled": false
+    },
     {
       "groupName": "husky",
       "matchPackagePatterns": ["husky"],
       "labels": ["dependencies", "renovate", "check needed"],
       "rebaseWhen": "conflicted",
+      "commitMessageSuffix": "[husky libraries update]",
       "automerge": false
     },
     { 
       "groupName": "types",
       "packagePatterns": ["^@types/"],
       "labels": ["dependencies", "renovate", "check needed"],
+      "commitMessageSuffix": "[types libraries update]",
       "automerge": false
     },
     {
       "groupName": "jest",
       "labels": ["dependencies", "renovate", "check needed"],
+      "commitMessageSuffix": "[jest libraries update]",
       "automerge": false,
       "sourceUrlPrefixes": [
         "https://github.com/facebook/jest",
@@ -46,7 +76,25 @@
       "automerge": false,
       "extends": ["packages:linters"],
       "packageNames": ["prettier"],
-      "packagePatterns": ["^@typescript-eslint/"]
+      "packagePatterns": ["^@typescript-eslint/"],
+      "commitMessageSuffix": "[linters libraries update]"
+    },
+    { 
+      "groupName": "nuxtjs libraries",
+      "packagePatterns": ["^@nuxtjs/"],
+      "labels": ["dependencies", "renovate", "check needed"],
+      "commitMessageSuffix": "[nuxtjs libraries update]",
+      "automerge": false
+    },
+    {
+      "groupName": "nuxt",
+      "matchSourceUrlPrefixes": [
+        "https://github.com/nuxt/nuxt.js"
+      ],
+      "packagePatterns": ["^@nuxt/"],
+      "labels": ["dependencies", "renovate", "check needed"],
+      "commitMessageSuffix": "[nuxt libraries update]",
+      "automerge": false
     }
   ]
 }
