@@ -15,7 +15,6 @@
         ":autodetectPinVersions",
         ":prHourlyLimit2",
         ":prConcurrentLimit10",
-        "group:recommended",
         "workarounds:all",
         ":timezone(Asia/Tokyo)"
       ],
