@@ -87,10 +87,16 @@
       "automerge": false
     },
     {
-      "groupName": "nuxt",
+      "groupName": "nuxt matched",
       "matchSourceUrlPrefixes": [
         "https://github.com/nuxt/nuxt.js"
       ],
+      "labels": ["dependencies", "renovate", "check needed"],
+      "commitMessageSuffix": "[nuxt matched libraries update]",
+      "automerge": false
+    },
+    {
+      "groupName": "nuxt",
       "packagePatterns": ["^@nuxt/"],
       "labels": ["dependencies", "renovate", "check needed"],
       "commitMessageSuffix": "[nuxt libraries update]",
